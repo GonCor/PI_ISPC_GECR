@@ -1,0 +1,64 @@
+/* Normalizar pagina */
+/* Definir estilos predeterminados */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Estilos para encabezados */
+h1, h2, h3 {
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Estilos para párrafos */
+p {
+    margin-bottom: 20px;
+}
+
+/* Estilos para enlaces */
+a {
+    color: #0000FF;
+    text-decoration: none;
+}
+
+/* Estilos para listas */
+ul, ol {
+    list-style: none;
+}
+
+/* Estilos para imágenes */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Estilos para formularios */
+input, select, textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: none;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilos para botones */
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #0000FF;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
