@@ -1,13 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ISPC - TSCDIA</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
-    <h1>Servicios Financieros Bursatiles</h1>
+    <header>
+        <h1>Servicios Financieros Bursátiles</h1>
+    </header>
+    <main>
+        <section class="cryptoSection">
+            <h2>Precios de criptomonedas</h2>
+            <table class="cryptoTable">
+                <thead>
+                    <tr>
+                        <th>Crypto</th>
+                        <th>Cierre en USD</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for criptomoneda, valor in precios.items() %}
+                    <tr>
+                        <td>{{ criptomoneda }}</td>
+                        <td>{{ valor.usd }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+
+        <section class="stockSection">
+            <h2>Principales Activos USA</h2>
+            <table class="stockTable">
+                <thead>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Cierre en USD</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for resultado in resultados %}
+                    <tr>
+                        <td>{{ resultado[0] }}</td>
+                        <td>{{ resultado[1] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </main>
 </body>
+
 </html>

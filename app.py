@@ -1,22 +1,28 @@
 from flask import Flask, render_template
-import pandas as pd
+from utils.apicryptos import obtener_precios_criptomonedas
 from alpha_vantage.timeseries import TimeSeries
+import pandas as pd
 
 key = 'ISEKQWBWL7X54MDM'
 
 app = Flask(__name__)
 
-# Define la ruta principal de la aplicación Flask
 @app.route('/')
 def index():
     # Crea una lista de símbolos de acciones
     tickers = ['AAPL', 'TSLA', 'AMZN', 'GOOGL']
+    # Lista de criptomonedas que deseas obtener precios
+    criptomonedas = ['bitcoin', 'ethereum', 'dogecoin', 'cardano', 'ripple', 'litecoin', 'chainlink', 'stellar', 'uniswap', 'polygon-network']
 
     # Obtiene los resultados del último cierre de la función últimoCierre()
     resultados = ultimoCierre(tickers)
 
-    # Retorna el resultado en un template HTML
-    return render_template('resultados.html', resultados=resultados)
+    # Obtiene los precios de las criptomonedas de la función obtener_precios_criptomonedas()
+    precios = obtener_precios_criptomonedas(criptomonedas)
+
+    # Retorna la plantilla index.html con las variables resultados y precios
+    return render_template('index.html', resultados=resultados, precios=precios)
+
 
 # Define la función últimoCierre()
 def ultimoCierre(tickers):
@@ -42,6 +48,8 @@ def ultimoCierre(tickers):
 
     # Retorna la lista de resultados
     return resultados
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

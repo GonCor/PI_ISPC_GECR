@@ -1,0 +1,58 @@
+header {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cryptoSection, .stockSection {
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+.cryptoTable, .stockTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cryptoTable th, .cryptoTable td, .stockTable th, .stockTable td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.cryptoTable th {
+    background-color: #f1f1f1;
+    font-size: 18px;
+}
+
+.stockTable th {
+    background-color: #f1f1f1;
+    font-size: 18px;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+body {
+    background-color: #f7f7f7;
+}
+
+.container {
+    margin-top: 20px;
+}
