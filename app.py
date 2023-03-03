@@ -1,11 +1,24 @@
+from flask import Flask, render_template
 import pandas as pd
 from alpha_vantage.timeseries import TimeSeries
 
 key = 'ISEKQWBWL7X54MDM'
 
-# Crea una lista de símbolos de acciones
-tickers = ['GOOGL', 'AAPL', 'MSFT', 'AMZN']
+app = Flask(__name__)
 
+# Define la ruta principal de la aplicación Flask
+@app.route('/')
+def index():
+    # Crea una lista de símbolos de acciones
+    tickers = ['AAPL', 'TSLA', 'AMZN', 'GOOGL']
+
+    # Obtiene los resultados del último cierre de la función últimoCierre()
+    resultados = ultimoCierre(tickers)
+
+    # Retorna el resultado en un template HTML
+    return render_template('resultados.html', resultados=resultados)
+
+# Define la función últimoCierre()
 def ultimoCierre(tickers):
     # Crea un objeto TimeSeries de Alpha Vantage
     ts = TimeSeries(key=key, output_format='json')
@@ -30,8 +43,5 @@ def ultimoCierre(tickers):
     # Retorna la lista de resultados
     return resultados
 
-# Ejemplo de uso
-resultados = ultimoCierre(tickers)
-print(resultados)
-
-
+if __name__ == '__main__':
+    app.run(debug=True)

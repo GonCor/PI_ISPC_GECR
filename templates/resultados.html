@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <title>Resultados</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Indicadores Bursatiles mas importantes</h1>
+    <h2>Ultimo Precio al Cierre</h2>
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Ticker</th>
+          <th>Cierre en USD</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for resultado in resultados %}
+          <tr>
+            <td>{{ resultado[0] }}</td>
+            <td>{{ resultado[1] }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</body>
